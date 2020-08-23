@@ -1,0 +1,162 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+%opening
+\title{Project details}
+
+%(rationale for the proposed work, goals, experimental approach and/or methods, milestones, expected output, specific role of the ETH Fellow, timetable; not to exceed 5 pages)
+
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction and notation}
+
+
+\subsection*{Scattering problems}
+
+Assume that an incident harmonic wave of frequency $k$ is sent to an obstacle, or a material heterogeneity (an airplane in the sky, a crack in a material, a tumor in the body...). The presence of the obstacle generates a scattered field propagating away from this heterogeneity. The shape and intensity of this scattered field depends essentially on the location, geometry and material properties of the scatterer. In many contexts it is fundamental to predict by numerical computation, with high fidelity and in a short time, the scattered field from the \textit{a priori} knowledge of the scattering object and incident wave. 
+
+Scattering problems arise for several different types of waves, by increasing level of complexity:
+\begin{itemize}
+	\item[-] Acoustics, sound waves in dimensions 2 and 3.
+	\item[-] Electromagnetism, Maxwell equations
+	\item[-] Linear elasticity. 
+\end{itemize} 
+Usually, practical applications involve the last two kinds of waves, at high frequency, and obstacles with complex geometries.  
+
+\subsection*{Integral equations}
+
+The mathematical tools most adapted to this task are the formalism of integral equations and the boundary element method (reference monographs include e.g. \cite{mclean2000strongly,sauter2010boundary}). Consider the obstacle to be modeled by a domain $\Omega \subset \mathbb{R}^n$ ($n=2,3$) and let $\Gamma = \partial \Omega$ be its boundary. Then the scattered $u_s$ field is given by the Green's formula
+
+\[\forall x \in \mathbb{R}^n \setminus{\Omega}, \quad u_s(x) =  \int_{\Gamma} \dfrac{\partial G_k}{\partial n}(x,y) \mu(y) -  G_k(x,y) \lambda(y) d\Gamma(y)\, \] 
+where $G_k(x,y)$ is an explicit function of $k$, $x$ and $y$, $n$ is the surface normal vector on $\Gamma$ and $\lambda$ and $\mu$ are surface unknowns defined on $\Gamma$. Those unknowns can be determined by solving some integral equations. Many equivalent integral equations are available depending on the situation and the requirements of the method. For instance, one such equation, the single-layer integral equation, reads
+\begin{equation}
+	\label{Slambda}
+ 	\forall x \in \Gamma, \quad \int_{\Gamma} G_k(x,y) \lambda(y) = -u_{inc}(x)
+\end{equation}
+where $u_{inc}$ is the (known) incident wave. 
+
+\subsection*{Boundary element methods}
+
+Eq.~\eqref{Slambda} is a functional equation whose unknown $\lambda$ is sought in a infinite-dimensional Hilbert space. In practice, one looks for an approximation of the exact solution $\lambda$, and one of the standard procedures to do so is the boundary element method. A surface mesh of the scattering object is designed, and $\lambda$ is sought in the form of a linear combination of low-order piecewise polynomial functions on this surface mesh. 
+
+{\color{red} Insert mesh image.}
+
+The vector $U$ of the coefficients of the piecewise polynomial approximation which minimize the approximation error (in a norm equivalent to the energy norm) can be found by solving a linear system of the form $A U = L$ where
+\[A_{i,j} = \iint_{\Gamma\times \Gamma} G_k(x,y) \phi_i(x) \phi_j(y) \,dx\,dy\,,\quad  L_i = -\int_{\Gamma} \phi_i(x) u_{inc}(x)\,dx\,. \]
+Increasing the mesh density decreases the approximation error, which tends to $0$ in the limit of an infinite mesh density. Note that unlike in  Finite Element Methods, $A$ is a dense matrix. 
+
+\subsection*{Iterative solvers}
+
+In real life applications, it is customary to have at least $10^6$ unknowns, in which case the full matrix $A$ does not fit in standard laptops RAM memories. Compression and acceleration methods are used to compute matrix vector products. The direct inversion of $A$ for example by LU factorization, is prohibitive. Instead, it is now standard to resort to iterative methods, such as GMRES \cite{saad1986gmres}. In each iteration, a matrix-vector product is computed, and the number of iterations of the method is unknown and depends on the conditioning of $A$. In the past 30 years, active research has been devoted to designing efficient compression methods (e.g. Fast Multipole Methods \cite{greengard1987fast} and H-matrices \cite{hackbusch1999sparse}), and reducing the number of iterations by preconditioning the matrix $A$ (see e.g. \cite{steinbach1998construction}).
+
+\section{Current challenges}
+
+
+\subsection*{High-frequency preconditioners}
+
+In the situation when the scattering obstacle is smooth, very efficient methods both for matrix compression and preconditioning have been developed and analyzed. One of the most successful approaches is that initiated by Steinbach et al. in \cite{steinbach1998construction}, and now referred to as operator preconditioning \cite{hiptmair2006operator}. With this mathematical theory, one is able to build preconditioners with provably uniform condition number with respect to the discretization parameters. However, a uniform dependence of the condition number with respect to the wave frequency has not yet been achieved. Among the efficient practical approaches, one is to use of heuristic preconditioners based on pseudo-differential theory, e.g. \cite{antoine2007generalized}. Providing solid theoretical foundations for those method would be a significant breakthrough, and would probably allow to extend them to more complex applications. 
+
+\subsection*{Complex scatterers}
+
+In particular, non-smooth scatterers (such as containing edges or corners) pose serious difficulties both at the practical level (the standard methods converge very slowly) and the mathematical level. The analytic framework needs to be adapted to take into account the particular singularity of the scatterer. Intense research is currently devoted to wave propagation around screens and cracks. In parallel, previous work in the host laboratory has been devoted to the treatment of even more complex scatterers called ``multi-screens" \cite{claeys2013integral,claeys2020quotient}, which can deal with the very practically important case of junction points. In this framework, preconditioning is a crucial and completely open question.  
+
+ 
+\section{Open perspectives}
+
+\subsection*{High-frequency preconditioners for screens}
+
+In his PhD thesis, the applicant ({\color{red} is this way of referring to myself OK ?}) has developed a new method for developing efficient preconditioners for screens in 2D for acoustic problems at high frequency, a work that will soon be published in Numerische Mathematik ({\color{red} should I say that ?}). One particular aspect of this work is that it successfully adapts the heuristic pseudo-differential approach that was previously only available efficient for smooth scatterers. 
+
+For now, the applications tackled are very academic, but the method could be expanded into a much more general and versatile framework. First of all, theoretical foundations and promising preliminary numerical tests have been done during the thesis for the application of the method in 3D on disk screens. It will be one of the early objectives of this post-doc to complete this work and publish it. Once this is done, it will be straightforward to extend this work to electromagnetic equations in 3D. This generalization would be a natural combination of the works of the applicant and the host professor \cite{hiptmair2019preconditioning}. This would be without doubts a significant achievement in the current research. Additionally,  
+to
+\subsection*{Conformal preconditioners}
+
+Another very natural generalization of the work of the applicant is the treatment of polygonal scatterers in 2D. We have recently found a mathematical identity that draws a close link between preconditioners and conformal mappings, which hints at completely new and powerful preconditioners adapted to corner singularities. A middle-term objective of this research project will be to analyze rigorously this idea and implement it efficiently. The expected output is a method that completely solves the question of polygons in 2D at any frequency, which would be a significant achievement in the domain. This would also open some possible breakthrough for 3D singularities such as wedges, which are omnipresent in practical applications. Exploring this idea is a long-term objective of this project.
+
+
+\subsection*{Integral equations on multi-screens}
+
+One of the most promising ideas for this research is the possibility of formulating ``combined-field" integral equations for multi-screens. Combined field formulations are well-known for smooth scatterers and have been introduced about 50 years ago \cite{brackage} as a way to guarantee the well-posedness of the equation at any wave frequency. Roughly speaking, the idea was to combine two popular ansatz (a simple layer and a double layer) for the scattered field, instead of using them separately. Additionally,upon suitable choice of the coupling parameter, this has the feature to improve the conditioning of the resulting linear system. 
+
+For screens, combined field integral equations have been abandoned, because they degenerate when the obstacle no longer has interior. 
+However, we have recently discovered that the formalism of multi-screens restores a ``virtual" interior to the obstacle, and a combined-field equation can be formulated mathematically without difficulty. Preliminary numerical simulations have shown the power of this idea and it will be an immediate objective of this project to implement this idea and analyze it rigorously. This would lead without doubts to an important publication in our field. 
+
+Lastly, after his thesis, the applicant has done a short post-doctorate with Xavier Claeys, a former student of the host professor, on the topic of preconditioning multi-screens using a domain decomposition approach. The resulting method is expected to be very robust and versatile. This collaboration will be continued during the post-doc and eventually lead to a publication. 
+
+
+\begin{thebibliography}{0}
+	
+	\bibitem{antoine2007generalized}
+	Antoine, X., Darbas, M.:
+	\newblock Generalized combined field integral equations for the iterative
+	solution of the three-dimensional helmholtz equation.
+	\newblock {\em ESAIM: Mathematical Modelling and Numerical Analysis}
+	41(1):147--167, 2007.
+	
+	\bibitem{claeys2013integral}
+	X.~Claeys and R.~Hiptmair.
+	\newblock Integral equations on multi-screens
+	\newblock {\em Integral equations and operator theory} 77(2): 167--197, 2013.
+	
+	\bibitem{claeys2020quotient}
+	X.~Claeys, L.~Giacomel, R. Hiptmair and C.~Urzua-Torres.
+	\newblock Quotient-Space Boundary Element Methods for Scattering at Complex Screens.
+	\newblock {\em SAM Research Report} 2020, ETH Zurich.
+	
+	
+	\bibitem{greengard1987fast}
+	Greengard, L., Rokhlin, V.:
+	\newblock A fast algorithm for particle simulations
+	\newblock {\em Journal of computational physics} 73(2):325--348, 1987.
+	
+	\bibitem{hiptmair2006operator}
+	Hiptmair., R.:
+	\newblock Operator preconditioning.
+	\newblock {\em Computers and mathematics with Applications} 52(5):699--706, 2006.
+	
+	
+	\bibitem{hiptmair2019preconditioning}
+	R.~Hiptmair and C.~Urzua Torres.
+	Preconditioning the EFIE on Screens
+	\newblock {\em SAM Research Report} 2019, ETH Zurich.
+	
+	\bibitem{mclean2000strongly}
+	W.~C.~H. McLean.
+	\newblock {\em Strongly elliptic systems and boundary integral equations}.
+	\newblock Cambridge university press, 2000.
+	
+	\bibitem{saad1986gmres}
+	Y.~Saad and M.~H. Schultz.
+	\newblock GMRES: A generalized minimal residual algorithm for solving
+	nonsymmetric linear systems.
+	\newblock {\em SIAM Journal on scientific and statistical computing},
+	7(3):856--869, 1986.
+	
+	\bibitem{sauter2010boundary}
+	S.~Sauter and C.~Schwab.
+	\newblock {\em Boundary Element Methods}
+	\newblock Springer 2010.
+	
+	
+	\bibitem{hackbusch1999sparse}
+	W.~Hackbusch.
+	\newblock A sparse matrix arithmetic based on H-matrices. Part I: Introduction to H-matrices.
+	\newblock {\em Computing} 62(2):89--108, 1999.
+	
+	\bibitem{steinbach1998construction}
+	O.~Steinbach and W.~L. Wendland.
+	\newblock The construction of some efficient preconditioners in the boundary
+	element method.
+	\newblock {\em Advances in Computational Mathematics}, 9(1-2):191--216, 1998.
+	
+	
+
+	
+	
+\end{thebibliography}
+
+\end{document}
