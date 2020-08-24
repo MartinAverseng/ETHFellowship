@@ -4,6 +4,8 @@
 \usepackage{color}
 %opening
 \title{Project details}
+\date{}
+\author{}
 
 %(rationale for the proposed work, goals, experimental approach and/or methods, milestones, expected output, specific role of the ETH Fellow, timetable; not to exceed 5 pages)
 
@@ -29,10 +31,10 @@ Usually, practical applications involve the last two kinds of waves, at high fre
 
 \subsection*{Integral equations}
 
-The mathematical tools most adapted to this task are the formalism of integral equations and the boundary element method (reference monographs include e.g. \cite{mclean2000strongly,sauter2010boundary}). Consider the obstacle to be modeled by a domain $\Omega \subset \mathbb{R}^n$ ($n=2,3$) and let $\Gamma = \partial \Omega$ be its boundary. Then the scattered $u_s$ field is given by the Green's formula
+The mathematical tools most adapted to this task are the formalism of integral equations and the boundary element method (reference monographs include e.g. \cite{mclean2000strongly,sauter2010boundary}). Consider the obstacle to be modeled by a domain $\Omega \subset \mathbb{R}^n$ ($n=2,3$) and let $\Gamma = \partial \Omega$ be its boundary. Then, the scattered $u_s$ field is given by the Green's formula
 
 \[\forall x \in \mathbb{R}^n \setminus{\Omega}, \quad u_s(x) =  \int_{\Gamma} \dfrac{\partial G_k}{\partial n}(x,y) \mu(y) -  G_k(x,y) \lambda(y) d\Gamma(y)\, \] 
-where $G_k(x,y)$ is an explicit function of $k$, $x$ and $y$, $n$ is the surface normal vector on $\Gamma$ and $\lambda$ and $\mu$ are surface unknowns defined on $\Gamma$. Those unknowns can be determined by solving some integral equations. Many equivalent integral equations are available depending on the situation and the requirements of the method. For instance, one such equation, the single-layer integral equation, reads
+where $G_k(x,y)$ is an explicit function of $k$, $x$ and $y$, $n$ is the surface normal vector on $\Gamma$ and $\lambda$ and $\mu$ are unknown functions, or ``surface densities", defined on $\Gamma$. Those unknowns can be determined by solving some integral equations. Many equivalent integral equations are available depending on the situation and the requirements of the method. For instance, one such equation, the single-layer integral equation, reads
 \begin{equation}
 	\label{Slambda}
  	\forall x \in \Gamma, \quad \int_{\Gamma} G_k(x,y) \lambda(y) = -u_{inc}(x)
@@ -51,14 +53,14 @@ Increasing the mesh density decreases the approximation error, which tends to $0
 
 \subsection*{Iterative solvers}
 
-In real life applications, it is customary to have at least $10^6$ unknowns, in which case the full matrix $A$ does not fit in standard laptops RAM memories. Compression and acceleration methods are used to compute matrix vector products. The direct inversion of $A$ for example by LU factorization, is prohibitive. Instead, it is now standard to resort to iterative methods, such as GMRES \cite{saad1986gmres}. In each iteration, a matrix-vector product is computed, and the number of iterations of the method is unknown and depends on the conditioning of $A$. In the past 30 years, active research has been devoted to designing efficient compression methods (e.g. Fast Multipole Methods \cite{greengard1987fast} and H-matrices \cite{hackbusch1999sparse}), and reducing the number of iterations by preconditioning the matrix $A$ (see e.g. \cite{steinbach1998construction}).
+In real life applications, it is customary to have at least $10^6$ unknowns, in which case the full matrix $A$ does not fit in standard laptops RAM memories. Compression and acceleration methods are used to compute matrix vector products. The direct inversion of $A$ for example by LU factorization, is prohibitive. Instead, it is now standard to resort to iterative methods, such as GMRES \cite{saad1986gmres}. In each iteration, a matrix-vector product is computed, and the number of iterations of the method is unknown and depends on the conditioning of $A$. In the past 30 years, active research has been devoted on the one hand, to designing efficient compression and acceleration methods, e.g. Fast Multipole Methods \cite{greengard1987fast} and H-matrices \cite{hackbusch1999sparse}. More recently, a class of algorithms based on non-uniform fourier transform have been proposed, and the applicant has contributed to this field \cite{averseng2017fast}. On the other hand, active research is devoted to finding methods for reducing the number of GMRES iterations by preconditioning the matrix $A$ (see e.g. \cite{steinbach1998construction}).
 
 \section{Current challenges}
 
 
 \subsection*{High-frequency preconditioners}
 
-In the situation when the scattering obstacle is smooth, very efficient methods both for matrix compression and preconditioning have been developed and analyzed. One of the most successful approaches is that initiated by Steinbach et al. in \cite{steinbach1998construction}, and now referred to as operator preconditioning \cite{hiptmair2006operator}. With this mathematical theory, one is able to build preconditioners with provably uniform condition number with respect to the discretization parameters. However, a uniform dependence of the condition number with respect to the wave frequency has not yet been achieved. Among the efficient practical approaches, one is to use of heuristic preconditioners based on pseudo-differential theory, e.g. \cite{antoine2007generalized}. Providing solid theoretical foundations for those method would be a significant breakthrough, and would probably allow to extend them to more complex applications. 
+In the situation when the scattering obstacle is smooth, very efficient methods both for matrix compression and preconditioning have been developed and analyzed. One of the most successful approaches is that initiated by Steinbach et al. in \cite{steinbach1998construction}, and now referred to as operator preconditioning \cite{hiptmair2006operator}. With this mathematical theory, one is able to build preconditioners with provably uniform condition number with respect to the discretization parameters. However, a uniform dependence of the condition number with respect to the wave frequency has not yet been achieved. Among the efficient practical approaches, one is to use of heuristic preconditioners based on pseudo-differential theory, e.g. \cite{antoine2007generalized}. Providing solid theoretical foundations for those method would be a significant breakthrough, and would probably allow to extend them to more complex applications. The applicant will attend an important conference on this topic at the university of Bath in 2021. 
 
 \subsection*{Complex scatterers}
 
@@ -69,23 +71,25 @@ In particular, non-smooth scatterers (such as containing edges or corners) pose 
 
 \subsection*{High-frequency preconditioners for screens}
 
-In his PhD thesis, the applicant ({\color{red} is this way of referring to myself OK ?}) has developed a new method for developing efficient preconditioners for screens in 2D for acoustic problems at high frequency, a work that will soon be published in Numerische Mathematik ({\color{red} should I say that ?}). One particular aspect of this work is that it successfully adapts the heuristic pseudo-differential approach that was previously only available efficient for smooth scatterers. 
+In his PhD thesis, the applicant ({\color{red} is this way of referring to myself OK ?}) has developed a new method for developing efficient preconditioners for screens in 2D for acoustic problems at high frequency, a work that will soon be published in Numerische Mathematik ({\color{red} should I say that ?}). One particular aspect of this work is that it successfully adapts the heuristic pseudo-differential approach that was previously only efficient for smooth scatterers. 
 
-For now, the applications tackled are very academic, but the method could be expanded into a much more general and versatile framework. First of all, theoretical foundations and promising preliminary numerical tests have been done during the thesis for the application of the method in 3D on disk screens. It will be one of the early objectives of this post-doc to complete this work and publish it. Once this is done, it will be straightforward to extend this work to electromagnetic equations in 3D. This generalization would be a natural combination of the works of the applicant and the host professor \cite{hiptmair2019preconditioning}. This would be without doubts a significant achievement in the current research. Additionally,  
-to
+For now, the applications tackled are very academic, but the method could be expanded into a much more general and versatile framework. First of all, theoretical foundations and promising preliminary numerical tests have been done during the thesis for the application of the method in 3D on disk screens. It will be one of the early objectives of this post-doc to complete this work and publish it. Once this is done, it will be straightforward to extend this work to electromagnetic equations in 3D. This generalization would be a natural combination of the works of the applicant and the host professor \cite{hiptmair2019preconditioning}. This would be without doubts a significant achievement in the current research. 
+
 \subsection*{Conformal preconditioners}
 
-Another very natural generalization of the work of the applicant is the treatment of polygonal scatterers in 2D. We have recently found a mathematical identity that draws a close link between preconditioners and conformal mappings, which hints at completely new and powerful preconditioners adapted to corner singularities. A middle-term objective of this research project will be to analyze rigorously this idea and implement it efficiently. The expected output is a method that completely solves the question of polygons in 2D at any frequency, which would be a significant achievement in the domain. This would also open some possible breakthrough for 3D singularities such as wedges, which are omnipresent in practical applications. Exploring this idea is a long-term objective of this project.
+Another very natural generalization of the work of the applicant is the treatment of polygonal scatterers in 2D. We have recently found a mathematical identity that draws a close link between preconditioners and conformal mappings, which hints at completely new and powerful preconditioners adapted to corner singularities. A middle-term objective of this research project will be to analyze rigorously this idea and implement it efficiently. The expected output is a method that completely solves the question of polygons in 2D at any frequency, which would be a significant achievement in the domain. In addition, it might be possible to transport the pseudo-differential to the polygon via the conformal mapping, which would be a very interesting novelty. 
+
+This work would also open some possible breakthrough for 3D singularities such as wedges, which are omnipresent in practical applications. Exploring this idea is a long-term objective of this project.
 
 
 \subsection*{Integral equations on multi-screens}
 
-One of the most promising ideas for this research is the possibility of formulating ``combined-field" integral equations for multi-screens. Combined field formulations are well-known for smooth scatterers and have been introduced about 50 years ago \cite{brackage} as a way to guarantee the well-posedness of the equation at any wave frequency. Roughly speaking, the idea was to combine two popular ansatz (a simple layer and a double layer) for the scattered field, instead of using them separately. Additionally,upon suitable choice of the coupling parameter, this has the feature to improve the conditioning of the resulting linear system. 
+One of the most promising ideas for this research is the possibility of formulating ``combined-field" integral equations for multi-screens. Combined field formulations are well-known for smooth scatterers and have been introduced more than 50 years ago \cite{brakhage1965dirichletsehe} as a way to guarantee the well-posedness of the equation at any wave frequency. Roughly speaking, the idea was to combine two popular ansatz (a simple layer and a double layer) for the scattered field, instead of using them separately. Additionally, upon suitable choice of the coupling parameter, this has the feature to improve the conditioning of the resulting linear system. 
 
 For screens, combined field integral equations have been abandoned, because they degenerate when the obstacle no longer has interior. 
 However, we have recently discovered that the formalism of multi-screens restores a ``virtual" interior to the obstacle, and a combined-field equation can be formulated mathematically without difficulty. Preliminary numerical simulations have shown the power of this idea and it will be an immediate objective of this project to implement this idea and analyze it rigorously. This would lead without doubts to an important publication in our field. 
 
-Lastly, after his thesis, the applicant has done a short post-doctorate with Xavier Claeys, a former student of the host professor, on the topic of preconditioning multi-screens using a domain decomposition approach. The resulting method is expected to be very robust and versatile. This collaboration will be continued during the post-doc and eventually lead to a publication. 
+Lastly, after his thesis, the applicant has done a short post-doctorate with Xavier Claeys, a former student of the host professor, on the topic of preconditioning integral equations on multi-screens using a domain decomposition approach. The resulting method is expected to be very robust and versatile. This collaboration will be continued during the post-doc and eventually lead to a publication. 
 
 
 \begin{thebibliography}{0}
@@ -96,6 +100,17 @@ Lastly, after his thesis, the applicant has done a short post-doctorate with Xav
 	solution of the three-dimensional helmholtz equation.
 	\newblock {\em ESAIM: Mathematical Modelling and Numerical Analysis}
 	41(1):147--167, 2007.
+	
+	\bibitem{averseng2017fast}
+	Averseng, M.:
+	\newblock Fast discrete convolution in $\mathbb {R}^{2} $ with radial kernels using non-uniform fast Fourier transform with nonequispaced frequencies. 
+	\newblock {\em Numerical Algorithms}, 1--24 (2019) 
+	
+	\bibitem{brakhage1965dirichletsehe}
+	A.~Brakhage, P.~Werner.
+	\newblock Uber das dirichletsehe aussenraumproblem fur die Helmholtzsche Schwingungsgleichung
+	\newblock {\em Archive fur Mathematik} 16:325–329, 1965
+	
 	
 	\bibitem{claeys2013integral}
 	X.~Claeys and R.~Hiptmair.
@@ -154,8 +169,10 @@ Lastly, after his thesis, the applicant has done a short post-doctorate with Xav
 	\newblock {\em Advances in Computational Mathematics}, 9(1-2):191--216, 1998.
 	
 	
-
-	
+\bibitem{BrakhageWerner}
+	A.~Brakhage, P.~Werner.
+	\newblock Uber das dirichletsehe aussenraumproblem fur die Helmholtzsche Schwingungsgleichung
+	\newblock {\em Archive fur Mathematik} 16:325–329, 1965
 	
 \end{thebibliography}
 
