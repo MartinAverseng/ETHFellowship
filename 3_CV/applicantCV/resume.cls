@@ -79,13 +79,25 @@
 \let\ori@document=\document
 \renewcommand{\document}{
   \ori@document  % Begin document
-  \printname % Print the name specified with \name
-  \@ifundefined{@addressone}{}{ % Print the first address if specified
-    \printaddress{\@addressone}}
-  \@ifundefined{@addresstwo}{}{ % Print the second address if specified
-    \printaddress{\@addresstwo}}
-     \@ifundefined{@addressthree}{}{ % Print the third address if specified
-    \printaddress{\@addressthree}}
+  
+  \begin{minipage}{0.23\textwidth}
+  	\begin{center}
+  		\includegraphics[width=2.5cm]{photo.jpg}
+  	\end{center}
+  	
+  \end{minipage}
+	\begin{minipage}{0.6\textwidth}
+		\printname % Print the name specified with \name
+		\@ifundefined{@addressone}{}{ % Print the first address if specified
+			\printaddress{\@addressone}}
+		\@ifundefined{@addresstwo}{}{ % Print the second address if specified
+			\printaddress{\@addresstwo}}
+		\@ifundefined{@addressthree}{}{ % Print the third address if specified
+			\printaddress{\@addressthree}}
+	\end{minipage}
+	\begin{minipage}{0.17\textwidth}
+	\end{minipage}
+  
 }
 
 %----------------------------------------------------------------------------------------
