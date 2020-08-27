@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.6.2)  27 AUG 2020 14:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.6.2)  27 AUG 2020 16:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -235,34 +235,34 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 28--37
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 297--298
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 312--313
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--319
+Underfull \hbox (badness 10000) in paragraph at lines 324--325
 
  []
 
 [7] [8] (./A02_ProjectDescription_averseng.aux) ) 
 Here is how much of TeX's memory you used:
- 2769 strings out of 483183
- 36804 string characters out of 5966293
- 272453 words of memory out of 5000000
- 17777 multiletter control sequences out of 15000+600000
+ 2770 strings out of 483183
+ 36821 string characters out of 5966293
+ 272457 words of memory out of 5000000
+ 17778 multiletter control sequences out of 15000+600000
  542437 words of font info for 63 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 30i,6n,33p,1823b,262s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,6n,33p,1841b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1
@@ -275,7 +275,7 @@ share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on A02_ProjectDescription_averseng.pdf (8 pages, 177780 bytes).
+Output written on A02_ProjectDescription_averseng.pdf (8 pages, 178162 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  56 compressed objects within 1 object stream
