@@ -1,0 +1,149 @@
+%\documentclass[ngerman]{ethbrief3}
+\documentclass[english]{ethbrief3}
+% \documentclass[ngerman,DepLogo]{ethbrief3}
+%\documentclass[english,DepLogo]{ethbrief3}
+%\documentclass[ngerman,ETHUZH]{ethbrief3}
+%\documentclass[english,ETHUZH]{ethbrief3}
+
+\usepackage[utf8]{inputenc}
+\usepackage[pdfborder={0 0 0},pdftex]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+
+% automatic language support (Niklas Beisert)
+\EthLang{
+  \RequirePackage[document]{ragged2e}% Corrects hyphenation in german
+  \RequirePackage{ngerman}
+  \PassOptionsToPackage{ngerman}{babel}
+}{
+  \PassOptionsToPackage{english}{babel}
+}
+
+% Declaration of the personal data
+    \EthFirstUnitName{\EthLang{SAM, D-MATH}{SAM, D-MATH}}
+    % \EthSecondUnitName{\EthLang{}{2nd line Organisation unit}}
+    \EthName{ETH \Zurich}
+    \EthPersName{\EthLang{Dr.~Ralf Hiptmair}{Dr.~Ralf Hiptmair}}
+    \EthPersPosition{\EthLang{Professor}{Professor}}
+     \EthOffice{\EthLang{HG G 58.2}{HG G 58.2}}
+     \EthStreet{\EthLang{R\"amistrasse 101}{R\"amistrasse 101}}
+     \EthTown{8092 \Zurich}
+%     \EthAddress{\EthLang{Freie\\Adresseingabe}{freestyle\\address}}
+% --- country optional, typical if sendig outside CH
+%     \EthLang{}{\EthCountry{\Switzerland}} % only the country in english version
+     \EthCountry{\Switzerland} % in german and english version
+     \EthPhone {+41 44 632 3404}
+%     \EthPhone {+41 44 632 bb bb} % secondary phone, fax, \ldots
+     \EthFax   {+41 44 632 1104}
+%     \EthMobile{+41 7 59 aa bbb}
+\EthLang{\EthEmail{hiptmair@sam.math.ethz.ch}
+     % \EthWeb{www.max.muster.ethz.ch}
+}{
+     % \EthEmail{john.doe@ethz.ch}
+  \EthWeb{www.sam.math.ch/\symbol{126}hiptmair}
+}
+%     \EthPersInfo{\EthLang{Zus\"atzliche\\Daten}{additional\\data}}
+
+% end of declaration of the personal data
+
+%***** Einbinden einer Unterschift-Grafik
+\signaturefile[0.5cm]{\includegraphics[height=1cm]{signature.pdf}} % include a signature file
+ \signature{Ralf Hiptmair}
+
+%\makelabels         % to get the address for an envelope
+% \date{May 15, 2013} % be free to define the date manually
+%***** multilinguale Ortsnamen, \Zurich definiert als Standard
+% \location{\Zurich}  % be free to define the location manually
+
+%***** Umbenannt
+\subject[{\color{white}response}]{Concern: Invitation Letter for Dr. Martin Averseng,
+  Applicant for ETH Zurich Postdoctoral Fellowship}
+
+%***** Umgehung von \begin{letter} moeglich, Angabe der Zieladresse
+\recipient{
+  Prof. Dr. Detlef Günther \\
+  Vice President for Research \\
+  ETH Zurich \\
+  \texttt{ethfellows@sl.ethz.ch}
+}
+
+\begin{document}
+
+%***** Umgehung von \begin{letter} moeglich
+%  \begin{letter}{Adresse}
+
+\opening{Sehr geehrter Herr Kollege Günther,}
+
+with this letter I would like to justify my \textbf{strong support} for and interest in
+the ETH Zurich Postdoctoral Fellowship Application. I had not known Dr. Averseng until
+last year Prof.~Francois Alouges from \'Ecole Polytechnique, Paris, asked me whether I
+would be wiling to serve as a reviewer for his doctoral thesis on "Méthodes efficaces pour
+la diffraction acoustique en 2 et 3 dimensions: Préconditionnement sur des domaines
+singuliers et convolution rapide". After browsing the related research reports, I agreed,
+because I realized the fundamental nature and substantial potential of that thesis'
+results, and their importance for my own work.
+
+Dr.~Averseng's PhD research has pushed the frontier of numerical and mathematical analysis
+of boundary integral equations (BIEs) for scattering at open curves and surfaces in
+several directions:
+\begin{itemize}
+\item He was the first to establish a framework of scales of weighted function spaces,
+  which turns out to be \emph{the} right setting for understanding the BIEs.
+\item He pioneered the development of a pseudo-differential calculus for \emph{open}
+  curves.
+\item He exploited the new pseudo-differential calculus for the construction of 
+  micro-local preconditioners for Helmholtz BIEs. As demonstrated by numerical tests those
+  allow effiicient implementation and perform excellently over wide ranges of frequencies.
+\end{itemize}
+This work provides many promising starting points further research, which can tackle open
+surfaces in 3D (preliminary work already documented in the thesis) and scattering problems
+in electromagnetics and linear elasticity.
+
+The focus and direction of Dr.~Averseng's research \textbf{perfectly complements} my own
+work of the past few years. I have maintained a strong interest in BIE methods for
+scattering for many years, first confined to closed surfaces and transmission problems,
+but shifting to open curves in 2014, when I won an ETHIRA grant for a project about
+"Scattering at complex screens". Jointly with C.~Urz\'ua-Torres in her PhD work we
+succeeded in finding operator preconditioners for Galerkin boundary element methods (BEM)
+for all first-kind BIEs for both acoustic and electromagnetics. However, our work has a
+blind spot: We could never made explicit the dependence of crucial constants on the
+frequency. Further progress will require technique's like those invented by Dr.~Averseng.
+
+Since 2014 I also collaborated with Dr.~X.~Claeys from LJLL, UPMC, Paris, to achieve a
+deeper understanding of BIEs on complicated open surfaces, so-called \emph{complex
+  screens}. We managed to introduce a quotient-space framework and also harness it for
+novel boundary element discretizations in $[${\sc X.~Claeys, L.~Giacomel, R.~Hiptmair, and
+  C.~Urzua-Torres}, {\em Quotient-space boundary element methods for scattering at complex
+  screens}, Tech. Rep. 2020-11, Seminar for Applied Mathematics, ETH Z{\"u}rich, under
+review$]$. In recent, still unpublished work Dr.~Averseng could exploit this idea to
+construct novel BIEs for screen problems. His ideas also seem to be highly relevant for
+building frequency-robust preconditioners for complex screens. All this is closely
+connected to my ongoing SNF-funded project dedicated to ``Novel Boundary Element Methods
+for Electromagnetics'', on which two PhD students are employed currently. Thus from the
+very beginning Dr. Averseng will be embedded in a group, whose members share almost all of
+his research interests.
+
+Hardly surprising, I have already offered Dr.~Averseng a full postdoctoral position in my
+group and he will start this week on September 1, 2020. I should add that Dr.~Averseng
+prevailed in a competitive postdoc application procedure implemented on the level of the
+institute, the Seminar for Applied Mathematics. His research achievements and presentation
+skills made him the first choice.
+
+The ETH fellowship would be another recognition of his prowess as a researcher in applied
+mathematics. It would enhance his profile in the community and give him greater
+independence in his contributions to teaching. His outstanding communication skills would also
+make him a great messenger for ETH as a leading research institution.
+
+Summing up, Dr. Averseng is \textbf{worthy and outstanding candidate} for an ETH
+Postdoctoral Fellowship and, in my opinion the case for selecting him is very strong.
+	
+   \closing{Yours sincerely,}
+
+    % \ps{Postscriptum}
+    % \encl{Anhang}
+    % \cc{carbon copy}
+  % \end{letter}
+
+\end{document}
