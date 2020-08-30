@@ -17,6 +17,7 @@
 }
 
 \newcommand{\rh}[1]{{\color{magenta}#1}}
+\newcommand{\ma}[1]{{\color{green}#1}}
 \newcommand{\drop}[1]{{\color{blue}#1}}
 
 \begin{document}
@@ -27,11 +28,6 @@
 \setcounter{chapter}{2}
 
 \section{Summary}
-
-\drop{ Key objectives of the proposed project(s) of the ETH Fellow, methods to be
-  employed, milestones and expected output; should be comprehensible for the educated
-  layman. Please do not exceed the frame below. Please do not use references or footnotes
-  in the summary.}
 
 \noindent\fbox{%
   \parbox{\textwidth}{%
@@ -72,7 +68,6 @@
     }}
 
 \section{Project details}
-\drop{(rationale for the proposed work, goals, experimental approach and/or methods, milestones, expected output, specific role of the ETH Fellow, timetable; not to exceed 5 pages)}
 
 \subsection{Topic, state of research and open problems}
 
@@ -81,7 +76,7 @@
 Assume that an incident time-harmonic wave with frequency $k$ impinges on an obstacle, or
 a material heterogeneity, an airplane in the sky, a crack in a material, a tumor in the
 body, etc.. The presence of the obstacle generates a scattered field propagating away
-it. The shape and intensity of this scattered field depends on the location, geometry and
+\ma{from} it. The shape and intensity of this scattered field depends on the location, geometry and
 material properties of the scatterer. Scattering problems arise in different areas and
 different types of waves, like sound waves (acoustics), electromagnetic waves, and elastic
 waves, of which the first two will be in the focus of the project. 
@@ -111,7 +106,7 @@ scattering problems:
 
 Among the standard mathematical tools most suitable for this task are integral equation
 formulations and the Galerkin boundary element method (BEM), see
-\cite{mclean2000strongly,sauter2010boundary}). The discretization of integral equations by
+\cite{mclean2000strongly,sauter2010boundary}. The discretization of integral equations by
 BEM leads to dense linear systems, which, nowadays, routinely have more than $10^6$
 unknowns. The use of matrix-compression techniques like Fast Multipole Methods
 \cite{greengard1987fast} and H-matrices \cite{hackbusch1999sparse} becomes mandatory.
@@ -124,21 +119,21 @@ high-resolution discretizations, causing the iterative solvers to progress very
 slowly. Preconditioning becomes indispensable and much research has been devoted to it for
 about thirty years. The most successful approach has been operator preconditioning
 \cite{hiptmair2006operator2}, also known as Calder\'on preconditioning, pioneered in
-\cite{steinbach1998construction} and further developed in \cite{BUC07ACB08} for
+\cite{steinbach1998construction} and further developed in \cite{buffa2007dual,andriulli2008multiplicative} for
 electromagnetics, and in \cite{hiptmair2020optimal} for screens. 
 
 An alternative are second-kind boundary integral equations. They enjoy better stability with
 respect to discretization parameters, and for this reason, in many instances, researchers
 have tried to avoid the use of first-kind integral equations despite their
 simplicity. However, second-kind boundary integral equations do not seems to exist for
-screens and, thus, they are not relevant for this project. 
+screens and, thus, they are not relevant for this project. \ma{Discuss this point.}
 
 \subsubsection*{Recent advances and open problems}
 
 Let us survey some recent advances in the field of integral equations, and related open problems.
 
 \paragraph{Scattering by screens.} We call an obstacle complex when its is not smooth
-domains or a at least a Lipschitz domain, a class of scatterers well understood by now
+domains or at least a Lipschitz domain, a class of scatterers well understood by now
 \cite{mclean2000strongly}. Issues also arise when singularities like edges or conical
 points are present. Particular attention has been devoted to BEM for screens and cracks,
 which provide important examples of non-Lipschitz domains, see
@@ -160,7 +155,7 @@ analysis and efficient preconditioning.
 for scattering at Lipschitz domains and screens,
 \cite{steinbach1998construction,hiptmair2006operator}, it is difficult to precisely
 determine the dependence on frequency of the performance of
-preconditioners. S.~Chandler-Wilde, D.~Hewett, and E.~Spence in the UK have been made
+preconditioners. S.~Chandler-Wilde, D.~Hewett, and E.~Spence in the UK have been making
 progress in theoretical asymptotic analysis of the condition number of the classical integral equations without
 preconditioners \cite{chandler2020high} and the use of asymptotic-numerical methods
 \cite{chandlerWilde2015high}.
@@ -169,7 +164,7 @@ Besides the popular Calder\'{o}n preconditioners
 \cite{christiansen2000preconditionneurs,christiansen2002preconditioner} for closed
 surfaces (recently extended to screens \cite{bruno2012second}), ``analytic
 preconditioners", based on pseudo-differential calculus which exhibit good frequency
-robustness \cite{antoine2007generalized} have been proposed for closed surfaces, which
+robustness \cite{alouges2007stable,antoine2007generalized} have been proposed for closed surfaces, which
 entertain a close link with regularized combined-field integral equations
 \cite{buffa2005regularized}. Although the frequency robustness properties are clear in
 practice and thoroughly documented in \cite{boubendir2014well}, up to now there is no
@@ -237,7 +232,7 @@ inverses), it is expected to obtain similar results, while benefiting from the q
 form and the high-frequency robustness.
 
 After dealing with electromagnetic problems, one can attempt to generalize this method to
-other operators (Hodge-Helmholtz, Dirac) )and related scattering problems, which are
+other operators (Hodge-Helmholtz, Dirac) and related scattering problems, which are
 actively investigated in my host group.  Another natural research direction is the extension of the
 pseudo-differential calculus of \cite{averseng2019pseudo} to open surfaces in 3D.
 
@@ -257,9 +252,7 @@ mapping using the Schwarz-Christoffel formula \cite{driscoll2002schwarz}. By
 analogy with the results of my thesis, one is led to believe that, for the Helmholtz
 problem ($k \neq 0$), the operator
 \[\sqrt{-(\omega \partial_\tau)^2 - k^2\omega^2}\]
-may be a good approximation of the exterior DtN map $\Lambda_k$. In addition, it might be
-possible to transport the pseudo-differential \rh{What is this?} to the polygon via the conformal mapping,
-which would be a way to investigate this question. Preliminary theoretical and numerical
+may be a good approximation of the exterior DtN map $\Lambda_k$. \ma{In addition, using the conformal change of variables, the global pseudo-differential calculus on the circle \cite{turunen1998symbol} could provide a new, useful pseudo-differential class on the polygon, thus furnishing a natural tool to investigate this question}. Preliminary theoretical and numerical
 investigation are very promising.
 
 This work would also point to ways to attach 3D singularities such as wedges, which are
@@ -274,11 +267,11 @@ scatterers and have been introduced more than 50 years ago
 \cite{brakhage1965dirichletsehe} as a way to guarantee the well-posedness of the equation
 at any frequency. For screens, combined field integral equations have been elusive,
 because they degenerate when the obstacle no longer has interior.  However, we have
-recently discovered that the formalism of multi-screens restores a ``virtual" interior to
+recently discovered that the formalism of \ma{quotient-spaces for multi-screens} restores a ``virtual" interior to
 the obstacle, and a combined-field equation can be formulated mathematically without
 difficulty. Preliminary numerical simulations have shown the power of this idea and it
 will be an immediate objective of this project to implement this idea and analyze it
-rigorously.  \rh{Motivation: Screen first-kind BIE are well-posed for all frequencies!}
+rigorously.  This also unlocks the possibility to implement regularized combined field equations on such geometries, hopefully leading to frequency-robust formulations. \rh{Motivation: Screen first-kind BIE are well-posed for all frequencies! }\ma{+ : possibility to make formulate regularized combined field equations, hopefully leading to well-conditioned, robust formulations.}
 
 Lastly, after my thesis, I have done a 6-month post-doctorate with Xavier Claeys. At LJLL,
 UPMC Paris, a former postdoc of my host professor R.~Hiptmair, on the topic of preconditioning integral
@@ -306,19 +299,29 @@ A crude timetable of the research project can be proposed as follows:
 \item[-] Additive Schwarz preconditioners before end of 2021, collaboration with Dr. Claeys.
 \end{itemize}
 
+\ma{I changed the format of the two biblio entries you added.}
+
 \begin{small}
   \begin{thebibliography}{0}
+		
+		\bibitem{alouges2007stable}
+		F.~Alouges, S.~Borel and D.~P.~Levadoux.
+		\newblock A stable well-conditioned integral equation for electromagnetism scattering.
+		\newblock {\em Journal of computational and applied mathematics} 204(2):440--451, 2007.
+		
 		
 		\bibitem{alouges2019new}
 		F.~Alouges and M.~Averseng.
 		\newblock New preconditioners for Laplace and Helmholtz integral equations on open curves: Analytical framework and Numerical results. 
 		\newblock Accepted for publication in {\em Numerische Mathematik}, 2020.
 
-                \bibitem{ACB08}
-{\sc F.~Andriulli, K.~Cools, H.~Bagci, F.~Olyslager, A.~Buffa, S.~Christiansen,
-  and E.~Michielssen}, {\em A multiplicative {C}alderon preconditioner for the
-  electric field integral equation}, IEEE Trans. Antennas and Propagation, 56
-  (2008), pp.~2398--2412.
+
+		\bibitem{andriulli2008multiplicative}
+		F.~Andriulli, K.~Cools, H.~Bagci, F.~Olyslager, A.~Buffa, S.~Christiansen,
+		and E.~Michielssen.
+		\newblock A multiplicative {C}alderon preconditioner for the
+		electric field integral equation.
+		\newblock {\em IEEE Trans. Antennas and Propagation} 56:2398--2412, 2008.
                 
 		\bibitem{antoine2007generalized}
 		X.~Antoine and M.~Darbas.
@@ -344,7 +347,7 @@ A crude timetable of the research project can be proposed as follows:
 		
 		\bibitem{brakhage1965dirichletsehe}
 		A.~Brakhage, P.~Werner.
-		\newblock Uber das dirichletsehe aussenraumproblem fur die Helmholtzsche Schwingungsgleichung
+		\newblock Uber das dirichletsehe aussenraumproblem fur die Helmholtzsche Schwingungsgleichung.
 		\newblock {\em Archive fur Mathematik} 16:325–329, 1965.
 		
 		\bibitem{bruno2012second}
@@ -357,9 +360,12 @@ A crude timetable of the research project can be proposed as follows:
 		A high-order integral solver for scalar problems of diffraction by screens and apertures in three-dimensional space.
 		\newblock {\em Journal of Computational Physics} 252:250--274, 2013.
 
-                \bibitem{BUC07}
-                  {\sc A.~Buffa and S.~Christiansen}, {\em A dual finite element complex on the
-                    barycentric refinement}, Math. Comp., 76 (2007), pp.~1743--1769.
+
+		\bibitem{buffa2007dual}
+		A.~Buffa and S.~Christiansen.
+		\newblock A dual finite element complex on the
+		barycentric refinement.
+      	{\em Math. Comp.} 76:1743--1769, 2007.
 
                 
 		\bibitem{buffa2005regularized}
@@ -390,11 +396,11 @@ A crude timetable of the research project can be proposed as follows:
 		\bibitem{chandler2020high}
 		S.~N.~ Chandler-Wilde, E.~Spence, A.~Gibbs and V.~P.~ Smyshlyaev.
 		\newblock High-frequency bounds for the Helmholtz equation under parabolic trapping and applications in numerical analysis.
-		\newblock {\em SIAM Journal on Mathematical Analysis}52(1):845--893, 2020.	
+		\newblock {\em SIAM Journal on Mathematical Analysis} 52(1):845--893, 2020.	
 		
 		\bibitem{claeys2013integral}
 		X.~Claeys and R.~Hiptmair.
-		\newblock Integral equations on multi-screens
+		\newblock Integral equations on multi-screens.
 		\newblock {\em Integral equations and operator theory} 77(2): 167--197, 2013.
 		
 		\bibitem{claeys2020quotient}
@@ -404,13 +410,13 @@ A crude timetable of the research project can be proposed as follows:
 		
 		\bibitem{driscoll2002schwarz}
 		T.~A.~Driscoll and L.~N.~Trefethen.
-		\newblock {\em Schwarz-christoffel mapping}
+		\newblock {\em Schwarz-christoffel mapping}.
 		\newblock Cambridge University Press, 2002.
 		
 		\bibitem{galkowski2019wavenumber}
 		J.~Galkowski and E.~A.~Spence
-		\newblock Wavenumber-explicit regularity estimates on the acoustic single-and double-layer operators
-		\newblock {\em Integral Equations and Operator Theory}91(6), 2019.
+		\newblock Wavenumber-explicit regularity estimates on the acoustic single-and double-layer operators.
+		\newblock {\em Integral Equations and Operator Theory} 91(6), 2019.
 		
 		\bibitem{gimperlein2019optimal}
 		H.~Gimperlein, J.~Stocek and C. Urzua-Torres.
@@ -419,7 +425,7 @@ A crude timetable of the research project can be proposed as follows:
 		
 		\bibitem{greengard1987fast}
 		Greengard, L., Rokhlin, V.:
-		\newblock A fast algorithm for particle simulations
+		\newblock A fast algorithm for particle simulations.
 		\newblock {\em Journal of computational physics} 73(2):325--348, 1987.
 		
 		\bibitem{hackbusch1999sparse}
@@ -441,7 +447,7 @@ A crude timetable of the research project can be proposed as follows:
 		
 		\bibitem{hiptmair2019preconditioning}
 		R.~Hiptmair and C.~Urzua Torres.
-		Preconditioning the EFIE on Screens
+		Preconditioning the EFIE on Screens.
 		\newblock {\em SAM Research Report} 2019, ETH Zurich.
 		
 		
@@ -470,7 +476,7 @@ A crude timetable of the research project can be proposed as follows:
 		
 		\bibitem{ramaciotti2017some}
 		J.~C.~Nédélec and P.~Ramaciotti.
-		\newblock About some boundary integral operators on the unit disk related to the Laplace equation
+		\newblock About some boundary integral operators on the unit disk related to the Laplace equation.
 		\newblock {\em SIAM Journal on Numerical Analysis} 55(4):1892--1914, 2017.
 		
 		
@@ -483,12 +489,12 @@ A crude timetable of the research project can be proposed as follows:
 		
 		\bibitem{sauter2010boundary}
 		S.~Sauter and C.~Schwab.
-		\newblock {\em Boundary Element Methods}
+		\newblock {\em Boundary Element Methods.}
 		\newblock Springer 2010.
 		
 		\bibitem{stephan1984augmented}
 		E.~P.~Stephan and W.~L.~Wendland.
-		\newblock An augmented Galerkin procedure for the boundary integral method applied to two-dimensional screen and crack problems
+		\newblock An augmented Galerkin procedure for the boundary integral method applied to two-dimensional screen and crack problems.
 		\newblock {\em Applicable Analysis} 18(3):183--219, 1984.
 		
 		
@@ -498,7 +504,14 @@ A crude timetable of the research project can be proposed as follows:
 		element method.
 		\newblock {\em Advances in Computational Mathematics} 9(1-2):191--216, 1998.
 		
+		\bibitem{turunen1998symbol}
+		V.~Turunen and G.~Vainikko.
+		\newblock On Symbol Analysis of Periodic Pseudo differential Operators.
+		\newblock{\em Zeitschrift f{\"u}r Analysis und ihre Anwendungen} 17(1):9--22, 1998.
+		
+		
 		\bibitem{wendland1990hypersingular}
+		W.~L. Wendland and E.~P. Stephan.
 		\newblock A hypersingular boundary integral method for two-dimensional screen and crack problems.
 		\newblock {\em Archive for rational mechanics and analysis} 112(4):363--390, 1990.
 		
@@ -509,34 +522,32 @@ A crude timetable of the research project can be proposed as follows:
 \end{small}
 
 \section*{2.3 Available resources of the ETH host professor for the realization of the project}
-(Equipment, staff, knowledge, experience)\\
 
 The proposed project is of a theoretical and computational nature without an experimental component and does not require any special equipment of facilities, beyond standard resources like office space and IT infrastructure. Researchers a the Seminar of Applied Mathematics have access to D-MATH compute servers and ETH's Euler and Leonhard Linux clusters, which can be used for large-scale computations to be carried out as part of the project.
 
 \section*{2.4 Significance of the project for the ETH host professor} 
 
-Prof. R. Hiptmair's research has had a focus on boundary integral equations, boundary element methods, and preconditioning techniques for many years. In particular he has worked on operator preconditioning, screen problems, and novel BIE approaches to electromagnetic scattering. The natural continuation of this work are investigations into operator preconditioning for complex screens and the developmen of preconditioning strategies that are robust for high and low (in the case of electromagnetics) frequencies. Thus Prof. Hiptmair's research interests are perfectly aligned with the goals of the fellowship application.
+Prof. R. Hiptmair's research has had a focus on boundary integral equations, boundary element methods, and preconditioning techniques for many years. In particular he has worked on operator preconditioning, screen problems, and novel BIE approaches to electromagnetic scattering. The natural continuation of this work are investigations into operator preconditioning for complex screens and the development of preconditioning strategies that are robust for high and low (in the case of electromagnetics) frequencies. Thus Prof. Hiptmair's research interests are perfectly aligned with the goals of the fellowship application.
 
 
 \section*{2.5 Planned use of requested budget for research costs }
-(including travel costs, conference attendances, consumables)\\
 
 Beside kCHF 4 to be spent for travel, I am planning to use the remaining kCHF 8 of the standard budget of kCHF 12 to pay the salary of 1-2 student research assistants, who are to help me with coding jobs. I hope to be able to hire students after they have done term or thesis projects with me. Thus they can make a substantial contribution to software development in the project.
 
 \section*{2.6 Proposed teaching duties of ETH Fellowship candidate}
-(including an estimate of the average load)\\
 
-Upon arriving at ETH Zurich I would like to teach an MSc-level course on "Integral
-Equation Methods for Scattering" beside a Seminar on "Operator Preconditioning". I hope to attract several undergraduate students interested in doing MSc and BSc thesis or term projects under my supervision, thus building a small informal group. I expect a ~30\% workload due to teaching proper (~15\%) and supervision (~15\%), though the latter will be closely connected to my research.
+Upon arriving at ETH Zurich I would like to teach an MSc-level course on ``Integral
+Equation Methods for Scattering" beside a Seminar on ``Operator Preconditioning". I hope to attract several undergraduate students interested in doing MSc and BSc thesis or term projects under my supervision, thus building a small informal group. I expect a $\sim$30\% workload due to teaching proper ($\sim$15\%) and supervision ($\sim$15\%), though the latter will be closely connected to my research.
 
 \section*{2.7 Other requests for funding, especially applications submitted to other fellowship programs}
-	(Have you applied to other funding bodies with a similar or the same research project? Please note that you should also inform us if you obtain or request additional funds from other funding bodies during the evaluation period of your application.\\
-	
+
 I have not submitted any other applications.
 
 \section*{2.8 List of relevant publications by the ETH Fellow candidate and the ETH host professor}
+\bgroup
+\renewcommand{\chapter}[2]{}%
 
-\begin{thebibliography}{0}
+\begin{thebibliography}{}
 	% Numbers 2 to avoid bibliographic collisions.
 	\bibitem{alouges2019new2}
 	F.~Alouges and M.~Averseng.
@@ -600,10 +611,12 @@ I have not submitted any other applications.
 \end{thebibliography}
 
 
+
 \section*{2.9 Relevant publications of other authors}
 
 
-\begin{thebibliography}{0}
+\begin{thebibliography}{}
+	
 	\bibitem{antoine2007generalized2}
 	X.~Antoine and M.~Darbas.
 	\newblock Generalized combined field integral equations for the iterative
@@ -619,7 +632,7 @@ I have not submitted any other applications.
 	\bibitem{galkowski2019wavenumber2}
 	J.~Galkowski and E.~A.~Spence
 	\newblock Wavenumber-explicit regularity estimates on the acoustic single-and double-layer operators
-	\newblock {\em Integral Equations and Operator Theory}91(6), 2019.
+	\newblock {\em Integral Equations and Operator Theory} 91(6), 2019.
 	
 	\bibitem{gimperlein2019optimal2}
 	H.~Gimperlein, J.~Stocek and C. Urzua-Torres.
@@ -633,5 +646,8 @@ I have not submitted any other applications.
 	\newblock {\em Advances in Computational Mathematics} 9(1-2):191--216, 1998.	
 \end{thebibliography}
 
+\ma{I removed the "bibliography" headings for the last 2 bibs. }
 
+
+\egroup
 \end{document}
