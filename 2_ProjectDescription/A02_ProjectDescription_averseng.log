@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.8)  30 AUG 2020 12:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.8)  30 AUG 2020 12:37
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -142,21 +142,134 @@ LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-(./A02_ProjectDescription_averseng.aux)
+(/scratch/local/app/teTeX/06.18/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
+
+(/scratch/local/app/teTeX/06.18/texmf-dist/tex/generic/oberdiek/hobsub-hyperref
+.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+(/scratch/local/app/teTeX/06.18/texmf-dist/tex/generic/oberdiek/hobsub-generic.
+sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+) (/scratch/local/app/teTeX/06.18/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+) (/scratch/local/app/teTeX/06.18/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen120
+\Hy@linkcounter=\count104
+\Hy@pagecounter=\count105
+
+(/scratch/local/app/teTeX/06.18/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count106
+
+(/scratch/local/app/teTeX/06.18/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4509.
+Package hyperref Info: Link nesting OFF on input line 4514.
+Package hyperref Info: Hyper index ON on input line 4517.
+Package hyperref Info: Plain pages OFF on input line 4524.
+Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4762.
+\c@Hy@tempcnt=\count107
+
+(/scratch/local/app/teTeX/06.18/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5115.
+\XeTeXLinkMargin=\dimen121
+\Fld@menulength=\count108
+\Field@Width=\dimen122
+\Fld@charsize=\dimen123
+Package hyperref Info: Hyper figures OFF on input line 6369.
+Package hyperref Info: Link nesting OFF on input line 6374.
+Package hyperref Info: Hyper index ON on input line 6377.
+Package hyperref Info: backreferencing OFF on input line 6384.
+Package hyperref Info: Link coloring OFF on input line 6389.
+Package hyperref Info: Link coloring with OCG OFF on input line 6394.
+Package hyperref Info: PDF/A mode OFF on input line 6399.
+LaTeX Info: Redefining \ref on input line 6439.
+LaTeX Info: Redefining \pageref on input line 6443.
+\Hy@abspage=\count109
+\c@Item=\count110
+\c@Hfootnote=\count111
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/scratch/local/app/teTeX/06.18/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
+\Fld@listcount=\count112
+\c@bookmark@seq@number=\count113
+
+(/scratch/local/app/teTeX/06.18/texmf-dist/tex/latex/oberdiek/rerunfilecheck.st
+y
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip46
+) (./A02_ProjectDescription_averseng.aux)
 \openout1 = `A02_ProjectDescription_averseng.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -194,23 +307,43 @@ LaTeX Font Info:    ... okay on input line 21.
 
 (/scratch/local/app/teTeX/06.18/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count104
-\scratchdimen=\dimen120
+\scratchcounter=\count114
+\scratchdimen=\dimen124
 \scratchbox=\box28
-\nofMPsegments=\count105
-\nofMParguments=\count106
+\nofMPsegments=\count115
+\nofMParguments=\count116
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count107
-\MPscratchDim=\dimen121
-\MPnumerator=\count108
-\makeMPintoPDFobject=\count109
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen125
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
 \everyMPtoPDFconversion=\toks22
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 23.
- (/scratch/local/app/teTeX/06.18/texmf-dist/tex/latex/amsfonts/umsa.fd
+\AtBeginShipoutBox=\box29
+Package hyperref Info: Link coloring OFF on input line 22.
+ (/scratch/local/app/teTeX/06.18/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+(/scratch/local/app/teTeX/06.18/texmf-dist/tex/generic/oberdiek/gettitlestring.
+sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count120
+)
+LaTeX Info: Redefining \ref on input line 22.
+LaTeX Info: Redefining \pageref on input line 22.
+LaTeX Info: Redefining \nameref on input line 22.
+ (./A02_ProjectDescription_averseng.out)
+(./A02_ProjectDescription_averseng.out)
+\@outlinefile=\write3
+\openout3 = `A02_ProjectDescription_averseng.out'.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 25.
+
+(/scratch/local/app/teTeX/06.18/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 23.
+LaTeX Font Info:    Try loading font information for U+msb on input line 25.
 
 (/scratch/local/app/teTeX/06.18/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -222,16 +355,21 @@ LaTeX Warning: No \author given.
 
 {/usr/local64.hg/app/teTeX/current/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 }]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 35--72
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 36--73
 [] 
  []
 
-[1]
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.94 
+      [1]
 
-LaTeX Warning: Citation `BUC07ACB08' on page 2 undefined on input line 126.
+LaTeX Warning: Citation `BUC07ACB08' on page 2 undefined on input line 127.
 
 [2] [3] [4] [5]
-Underfull \hbox (badness 1831) in paragraph at lines 253--257
+Underfull \hbox (badness 1831) in paragraph at lines 316--320
 [][]\OT1/cmr/m/sc/9 F. An-dri-ulli, K. Cools, H. Bagci, F. Olyslager, A. Buffa,
  S. Chris-tiansen, and
  []
@@ -239,42 +377,60 @@ Underfull \hbox (badness 1831) in paragraph at lines 253--257
 [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 457--458
+Underfull \hbox (badness 10000) in paragraph at lines 520--521
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--463
+Underfull \hbox (badness 10000) in paragraph at lines 525--526
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--469
+Underfull \hbox (badness 10000) in paragraph at lines 531--532
 
  []
 
 [8] [9
 
-] [10
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 635.
+ [10
 
-] (./A02_ProjectDescription_averseng.aux)
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 635.
+ (./A02_ProjectDescription_averseng.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 635.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 635.
+
+
+Package rerunfilecheck Warning: File `A02_ProjectDescription_averseng.out' has 
+changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `A02_ProjectDescription_averseng.out
+':
+(rerunfilecheck)             Before: C29F174E07EFA7B9D631D6B3EABD5915;338
+(rerunfilecheck)             After:  D946B50FEE7753525B484E4230D9A616;418.
 
 LaTeX Warning: There were undefined references.
 
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 635.
  ) 
 Here is how much of TeX's memory you used:
- 2393 strings out of 492649
- 31490 string characters out of 6122040
- 101807 words of memory out of 5000000
- 6264 multiletter control sequences out of 15000+600000
- 14646 words of font info for 56 fonts, out of 8000000 for 9000
+ 6363 strings out of 492649
+ 92961 string characters out of 6122040
+ 191807 words of memory out of 5000000
+ 10099 multiletter control sequences out of 15000+600000
+ 14814 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,6n,31p,1035b,269s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,8n,31p,662b,473s stack positions out of 5000i,500n,10000p,200000b,80000s
 </scratch/local/app/teTeX/06.18/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
 x10.pfb></scratch/local/app/teTeX/06.18/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb></scratch/local/app/teTeX/06.18/texmf-dist/fonts/type1/public/ams
@@ -293,12 +449,13 @@ h/local/app/teTeX/06.18/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></s
 cratch/local/app/teTeX/06.18/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
 fb></scratch/local/app/teTeX/06.18/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ti9.pfb></scratch/local/app/teTeX/06.18/texmf-dist/fonts/type1/public/amsfonts/
-symbols/msbm10.pfb>
-Output written on A02_ProjectDescription_averseng.pdf (11 pages, 232961 bytes).
+cm/cmtt8.pfb></scratch/local/app/teTeX/06.18/texmf-dist/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on A02_ProjectDescription_averseng.pdf (11 pages, 245614 bytes).
 
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 291 PDF objects out of 1000 (max. 8388607)
+ 257 compressed objects within 3 object streams
+ 91 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
