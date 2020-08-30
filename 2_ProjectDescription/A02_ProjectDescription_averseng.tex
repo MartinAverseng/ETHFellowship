@@ -1,151 +1,325 @@
-\documentclass[]{article}
+\documentclass[]{report}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{color}
 \usepackage{setspace}
 \usepackage{cite}
+\usepackage{hyperref}
 \date{}
 %opening
 \title{A02\_Project Description – Application to the ETH Zurich Postdoctoral Fellowship programme}
 \let\OLDthebibliography\thebibliography
 \renewcommand\thebibliography[1]{
-	\OLDthebibliography{#1}
-	\setlength{\parskip}{0pt}
-	\setlength{\itemsep}{0pt plus 0.5ex}
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{0pt plus 0.5ex}
 }
+
+\newcommand{\rh}[1]{{\color{magenta}#1}}
+\newcommand{\drop}[1]{{\color{blue}#1}}
+
 \begin{document}
 
 \maketitle
 
+\setcounter{section}{0}
+\setcounter{chapter}{2}
 
-\section*{2.1 Summary}
+\section{Summary}
 
-Key objectives of the proposed project(s) of the ETH Fellow, methods to be employed, milestones and expected output; should be comprehensible for the educated layman. Please do not exceed the frame below. Please do not use references or footnotes in the summary. \\
-
-
+\drop{ Key objectives of the proposed project(s) of the ETH Fellow, methods to be
+  employed, milestones and expected output; should be comprehensible for the educated
+  layman. Please do not exceed the frame below. Please do not use references or footnotes
+  in the summary.}
 
 \noindent\fbox{%
-	\parbox{\textwidth}{%
-		Integral equations are a class of mathematical methods to recast time-harmonic scattering problems into functional equations satisfied by surface densities defined on the scattering obstacle. Various techniques are known to approximate the solution of those equations numerically. In many cases, the system matrix of the discrete problem is ill-conditioned. Unfavorable cases typically involve scatterers with singularities like edges or conical points, and very low / very high frequency regimen. 
-		In this research project, we aim at designing new numerical schemes for integral equations that are well conditioned, able to deal with complex geometry of the scatterers and robust in the low and high frequency limits. Mathematical analysis will be used to prove rigorously the favorable properties of those new methods. Moreover, the methods will be systematically implemented and tested numerically to illustrate the theoretical findings. 
-		First, we will design a combined-field method for multi-screens, which are among the most general and complex types of scatterers that are tackled in the current literature. Combined field methods are a known class of methods for integral equations that are very efficient for massive scatterers but have failed for simple screens. The recent formalism of quotient-space for multi-screens seems perfectly suited for the application of this idea as suggested by preliminary numerical tests.
-		Second, we will develop ``conformal preconditioners" for integral equations on polygons. This is a generalization of my thesis work, where the heart of the idea is a simple identity relating the conformal mapping of a given polygon into a circle to the Dirichlet-Neumann operator. This leads naturally to the formulation of new preconditioners and hints at a new kind of theoretical tools to analyze integral equations on polygons. Very promising preliminary analysis and numerical tests are readily available. 
-		In the long run, we have in mind the following objectives. Pursue generalizations of the previous ideas to increasing levels of complexity, to fill the gap between theory and practical applications. Especially adapting all those methods to electromagnetic integral equations in dimensions 3.
-	}%
-}
+  \parbox{\textwidth}{%
+    The project is concerned with the numerical simulation of acoustic and electromagnetic
+    scattering of time-harmonic waves, which is a core task in computational science and
+    engineering and enabling technology for optimization and imaging. A popular class of
+    numerical methods relies on integral equations, which recast time-harmonic scattering
+    problems into functional equations satisfied by surface densities defined on the
+    scattering obstacle. Various techniques are known to approximate the solution of those
+    equations numerically. However, the system matrix of the discrete problem may be
+    ill-conditioned, which regularly happens for high-resolution discretizations and 
+    very low or high frequencies. 
 
-\section*{2.2 Project details}
-(rationale for the proposed work, goals, experimental approach and/or methods, milestones, expected output, specific role of the ETH Fellow, timetable; not to exceed 5 pages)
+    We aim at designing and analyzing rigourously a range new numerical schemes that
+    yields well-conditions linear systems, are able to deal with complex geometry of the
+    scatterers, and are robust in the low- and high-frequency limits. We focus on thin
+    scatterers modeled as open curves or surfaces, so-called screens. Moreover, the new
+    methods will be systematically implemented and tested numerically to illustrate the
+    theoretical findings.
 
-\subsection*{Topic, state of research and open problems}
+    First, we will derive combined-field integral equations for multi-screens, which are
+    among the most general and complex types of scatterers faced in
+    applications. Combined-field methods have been very successful for massive scatterers
+    but are not yet available for screens. Yet, the modern quotient-space treatment of
+    multi-screens seems perfectly suited for the application of this idea.
 
+    Second, we will develop ``conformal preconditioners" for integral equations on
+    polygons. At the the heart of the idea is a simple identity relating the conformal
+    mapping of a given polygon into a circle to the Dirichlet-Neumann operator. This leads
+    to the formulation of new preconditioners and hints at a new kind of theoretical tools
+    to analyze integral equations on polygons.
+
+    Promising partial theoretical and numerical results for acoustics in two dimensions
+    are already available. The ideas naturally generalize to three dimension and, with
+    suitable adaptations to electromagnetic scattering. Once elaborated for these
+    problems, the full potential of our new methods will emerge and, we believe, they will
+    have an impact in computational engineering. 
+    }}
+
+\section{Project details}
+\drop{(rationale for the proposed work, goals, experimental approach and/or methods, milestones, expected output, specific role of the ETH Fellow, timetable; not to exceed 5 pages)}
+
+\subsection{Topic, state of research and open problems}
 
 \subsubsection*{Forward scattering problems in frequency domain}	
 
-Assume that an incident time-harmonic wave of frequency $k$ impinges on an obstacle, or a material heterogeneity (an airplane in the sky, a crack in a material, a tumor in the body...). The presence of the obstacle generates a scattered field propagating away from this heterogeneity. The shape and intensity of this scattered field depends essentially on the location, geometry and material properties of the scatterer. In many contexts it is fundamental to predict by numerical computation, with high fidelity and in a short time, the scattered field from the \textit{a priori} knowledge of the scattering object and incident wave. This is important for engineering (acoustics, electromagnetism) and is also an essential step in most algorithms for inverse problems.
+Assume that an incident time-harmonic wave with frequency $k$ impinges on an obstacle, or
+a material heterogeneity, an airplane in the sky, a crack in a material, a tumor in the
+body, etc.. The presence of the obstacle generates a scattered field propagating away
+it. The shape and intensity of this scattered field depends on the location, geometry and
+material properties of the scatterer. Scattering problems arise in different areas and
+different types of waves, like sound waves (acoustics), electromagnetic waves, and elastic
+waves, of which the first two will be in the focus of the project. 
 
-Scattering problems arise for several different types of waves, by increasing level of complexity:
-\begin{itemize}\itemsep-.2em 
-	\item[-] Acoustics, sound waves in dimensions 2 and 3.
-	\item[-] Electromagnetism, Maxwell equations
-	\item[-] Linear elasticity. 
-\end{itemize}   
+In many contexts it is fundamental to predict the scattered field from the \textit{a
+  priori} knowledge of the scattering object and incident wave. This can only be done by
+numerical computations, and one wants high accuracy at moderate computational cost. This
+is important for engineering (acoustics, electromagnetism) and is also an essential step
+in most algorithms for inverse problems.
 
-This project focuses on the following aspects of the problem.
+This project aims to address on the following aspects of numerical simulation of
+scattering problems:
 \begin{itemize}
-	\item[-] We look for extension and improvements of existing numerical methods in the specific case where the scatterer is a ``screen", that is, an object modeled by an infinitely thin layer. In dimension 2, this translates into open lines, and open surfaces in dimension 3. Multi-screens will also be considered. Those are generalizations of screens, in particular admitting junctions. 
-	\item[-] The key parameter is the wave frequency $k$. High-frequency problems are challenging because they require finer discretization. Moreover, methods that are efficient at medium frequencies often present instabilities in the high or low frequency ranges. In this project, we aim at designing methods with provably robust behavior with respect to frequency. 
+\item[-] We look for extensions and improvements of existing numerical methods in the
+  specific case where the scatterer is a ``screen", that is, an object modeled by an
+  infinitely thin layer, its geometry described as an open curve (2D) or surface
+  (3D). So-called multi-screens will also be considered, which are generalizations of
+  screens, in particular featuring junctions.
+\item[-] The key parameter is the wave frequency $k$. High-frequency problems are
+  challenging because they require finer discretization. Moreover, methods that are
+  efficient at medium frequencies are often haunted by instability in the high or low
+  frequency ranges. In this project, we aim at designing methods with provably robust
+  behavior with respect to frequency.
 \end{itemize}
 
 \subsubsection*{Integral equations and boundary element methods (BEM)}
 
-Among the standard mathematical tools most adapted to this task are the formalism of integral equations and the Galerkin boundary element method. Reference monographs include e.g. \cite{mclean2000strongly,sauter2010boundary}). The discretization of integral equations by BEM leads to dense linear systems, which, in real-life applications, often have more than $10^6$ unknowns. This makes it prohibitive to solve the linear system by a direct method such as LU factorization. Instead, the development of efficient compression and acceleration methods for the linear systems opened the way for resolutions using iterative methods such as GMRES \cite{saad1986gmres}.
+Among the standard mathematical tools most suitable for this task are integral equation
+formulations and the Galerkin boundary element method (BEM), see
+\cite{mclean2000strongly,sauter2010boundary}). The discretization of integral equations by
+BEM leads to dense linear systems, which, nowadays, routinely have more than $10^6$
+unknowns. The use of matrix-compression techniques like Fast Multipole Methods
+\cite{greengard1987fast} and H-matrices \cite{hackbusch1999sparse} becomes mandatory.
+Unfortunately, this rules out the use of direct elimination solvers. The only remaining
+solver option are iterative methods such as GMRES \cite{saad1986gmres}.
 
-For the Galerkin BEM in the context of 	first-kind integral equations, a comprehensive convergence theory is available, but the linear systems are notoriously ill-conditioned for high-resolution discretizations, causing the iterative solvers to progress very slowly. Active research has been devoted to this issue in the past 30 years. On the one hand, some teams have targeted the iteration (matrix-vector product) time by developing compression and acceleration methods e.g. Fast Multipole Methods \cite{greengard1987fast} and H-matrices \cite{hackbusch1999sparse}. On the other hand, other teams have focused on finding suitable preconditioners in order to reduce the number of GMRES iterations. In this branch, \cite{steinbach1998construction} was a pioneer work. 
+For Galerkin BEM for first-kind boundary integral equations, a comprehensive convergence
+theory is available, but the arising linear systems are notoriously ill-conditioned for
+high-resolution discretizations, causing the iterative solvers to progress very
+slowly. Preconditioning becomes indispensable and much research has been devoted to it for
+about thirty years. The most successful approach has been operator preconditioning
+\cite{hiptmair2006operator2}, also known as Calder\'on preconditioning, pioneered in
+\cite{steinbach1998construction} and further developed in \cite{BUC07ACB08} for
+electromagnetics, and in \cite{hiptmair2020optimal} for screens. 
 
-Second-kind integral equations on the other hand are known to enjoy better stability with respect to discretization parameters, and for this reason, in many instances, researchers have tried to avoid the use of first-kind integral equations despite their simplicity. Nevertheless, the approximation properties of the second-kind formulations are less clear, and they degenerate for screen scatterers. 
-
+An alternative are second-kind boundary integral equations. They enjoy better stability with
+respect to discretization parameters, and for this reason, in many instances, researchers
+have tried to avoid the use of first-kind integral equations despite their
+simplicity. However, second-kind boundary integral equations do not seems to exist for
+screens and, thus, they are not relevant for this project. 
 
 \subsubsection*{Recent advances and open problems}
 
 Let us survey some recent advances in the field of integral equations, and related open problems.
 
-\paragraph{Scattering by screens.} The obstacles become complex when they are not smooth domains or Lipschitz domains, a class of scatterers that has become very classical with \cite{mclean2000strongly}. Problems arise when singularities are present (edges, conical points). There is a particular attention devoted to screens and cracks, which are the first example of non-Lipschitz domains \cite{bruno2013high,gimperlein2019optimal,hiptmair2018closed,hiptmair2019preconditioning,hiptmair2020optimal,hiptmair2020compact,ramaciotti2017some}. In this case, the formulation of well-posed integral equations in a proper mathematical framework is well-understood since \cite{stephan1984augmented,wendland1990hypersingular}, and the recent advances lie in the proposition of more efficient numerical methods, including high-order approximation schemes and provably ``optimal preconditioners". Additionally, some more challenging geometries are considered, including multi-screens \cite{claeys2013integral,claeys2020quotient} and fractal screens \cite{chandlerWilde2017sobolev}. In those cases, the achievement was to obtain well-posed integral equations and study their theoretical properties. For those complex geometries, many natural questions remain open, e.g. convergence of the numerical methods, singularity analysis and efficient preconditioning. 
+\paragraph{Scattering by screens.} We call an obstacle complex when its is not smooth
+domains or a at least a Lipschitz domain, a class of scatterers well understood by now
+\cite{mclean2000strongly}. Issues also arise when singularities like edges or conical
+points are present. Particular attention has been devoted to BEM for screens and cracks,
+which provide important examples of non-Lipschitz domains, see
+\cite{bruno2013high,gimperlein2019optimal,hiptmair2018closed,hiptmair2019preconditioning,hiptmair2020optimal,hiptmair2020compact,ramaciotti2017some}.
 
-\paragraph{Robustness in frequency.} Although optimal preconditioners are by now available for scattering problems by Lipschitz domains and screens, \cite{steinbach1998construction,hiptmair2006operator}, it is a difficult matter to analyze the preconditioning performance in terms of the frequency. Some researchers (Chandler-Wilde, Hewett, Spence...) have been concerned with theoretical asymptotic analysis of the condition number of the classical integral equations without preconditioners \cite{chandler2020high} and the use of asymptotic-numerical methods \cite{chandlerWilde2015high}. Besides the popular Calder\'{o}n preconditioners \cite{christiansen2000preconditionneurs,christiansen2002preconditioner} for closed surfaces (recently extended to screens \cite{bruno2012second}), ``analytic preconditioners", based on pseudo-differential calculus which exhibit good frequency robustness \cite{antoine2007generalized} have been proposed for closed surfaces, which entertain a close link with regularized combined-field integral equations \cite{buffa2005regularized}. Although the frequency robustness properties are clear in practice and extensively surveyed e.g. \cite{boubendir2014well}, there is no mathematical theory adapted to the study of this asymptotic robustness as to now. Moreover, those analytic preconditioning methods fail for screens. There is a feeling in the community that pseudo-differential analysis, which is often involved in constructing those robust preconditioners, should also play a role in providing quantitative estimates for this frequency dependence buch such desirable analysis has not been achieved yet. Some recent activity around semi-classical analysis seems to go in the right direction \cite{galkowski2019wavenumber}. I will attend a conference on this topic in June 2021 at the university of Bath. 
+In the case of ``simple'' screens that can be viewed as parts of a boundary of a Lipschitz
+domain, the formulation of well-posed integral equations in a proper mathematical
+framework is well-understood \cite{stephan1984augmented,wendland1990hypersingular}, and
+recent advances concern the design of more efficient numerical methods, including
+high-order approximation schemes and provably ``optimal preconditioners". Additionally,
+some more challenging geometries are considered, including multi-screens
+\cite{claeys2013integral,claeys2020quotient} and fractal screens
+\cite{chandlerWilde2017sobolev}. In those cases, the achievement was to obtain well-posed
+integral equations and study their theoretical properties. For those complex geometries,
+many natural questions remain open, e.g. convergence of the numerical methods, singularity
+analysis and efficient preconditioning.
 
+\paragraph{Robustness in frequency.} Although by now optimal preconditioners are available
+for scattering at Lipschitz domains and screens,
+\cite{steinbach1998construction,hiptmair2006operator}, it is difficult to precisely
+determine the dependence on frequency of the performance of
+preconditioners. S.~Chandler-Wilde, D.~Hewett, and E.~Spence in the UK have been made
+progress in theoretical asymptotic analysis of the condition number of the classical integral equations without
+preconditioners \cite{chandler2020high} and the use of asymptotic-numerical methods
+\cite{chandlerWilde2015high}.
 
-\subsection*{Own work}
+Besides the popular Calder\'{o}n preconditioners
+\cite{christiansen2000preconditionneurs,christiansen2002preconditioner} for closed
+surfaces (recently extended to screens \cite{bruno2012second}), ``analytic
+preconditioners", based on pseudo-differential calculus which exhibit good frequency
+robustness \cite{antoine2007generalized} have been proposed for closed surfaces, which
+entertain a close link with regularized combined-field integral equations
+\cite{buffa2005regularized}. Although the frequency robustness properties are clear in
+practice and thoroughly documented in \cite{boubendir2014well}, up to now there is no
+mathematical theory adapted to the study of this asymptotic robustness. Moreover, those
+analytic preconditioning methods fail for screens. In the expert community there is a
+belief that pseudo-differential analysis, which is often involved in constructing those
+robust preconditioners, should also pave the way for a quantitative estimate of frequency
+dependence, but such an desirable analysis has not been accomplished yet. Some recent
+activity centering around semi-classical analysis seems promising
+\cite{galkowski2019wavenumber}.
 
-During my PhD thesis, I have contributed to the research on compression and acceleration methods for the linear systems coming from boundary element methods \cite{averseng2017fast}. I then worked on new high-frequency preconditioners for acoustics integral equations on screens in dimension 2. The first publication on this topic \cite{alouges2019new} presents the analytical framework and numerical testing. The new preconditioners are analog to those of \cite{antoine2007generalized}. For example, for the single-layer integral equation, the following preconditioner is introduced: 
+\subsection{Own (preparetory) work}
+
+During my PhD thesis, I have contributed to the research on compression and acceleration
+methods for the linear systems coming from boundary element methods
+\cite{averseng2017fast}. I then worked on new \emph{high-frequency preconditioners} for acoustics
+integral equations on screens in two dimensions, following the paradigm of operator
+preconditioning. The first publication on this topic \cite{alouges2019new} presents the
+analytical framework and some numerical tests. The new preconditioners are inspired by those of
+\cite{antoine2007generalized}. For example, for the single-layer integral equation, the
+following preconditioning operator is introduced:
 \begin{equation}
 \label{prec}
-P_k = \sqrt{-(\omega \partial_\tau)^2 - k^2 \omega^2}
+P_k = \sqrt{-(\omega \partial_\tau)^2 - k^2 \omega^2}\;.
 \end{equation}
-to be compared to the preconditioners of \cite{antoine2007generalized} which take the form
-\[Q_k = \sqrt{-\Delta_S - k^2 I_d}\]
-where $\Delta_S$ is the Laplace-Beltrami operator on the closed surface $S$. 
-In eq.~\eqref{prec}, $\omega$ is a weight function defined on the screen $\Gamma$ and proportional to $\sqrt{\textup{d}(x,\partial \Gamma)}$, while $\partial_\tau$ is the tangential derivative.
-Upon using Padé approximations for the square root, the preconditioner obtained is ``quasi-local" in the sense that it involves only sparse matrices, as opposed to Calder\'{o}n preconditioners which are dense and require an additional compression step. The numerical tests demonstrate the robustness of the method with respect to $k$ and the relevance of the singular weight function $\omega$. 
+Compare this to the preconditioners of \cite{antoine2007generalized} which take the
+form \[Q_k = \sqrt{-\Delta_S - k^2 I_d}\] where $\Delta_S$ is the Laplace-Beltrami
+operator on the closed surface $S$.  In \eqref{prec}, $\omega$ is a weight function
+defined on the screen $\Gamma$ and proportional to $\sqrt{\textup{d}(x,\partial \Gamma)}$,
+while $\partial_\tau$ is the tangential derivative.  Upon using Padé approximations for
+the square root, the preconditioner obtained is ``quasi-local" in the sense that it
+involves only sparse matrices, as opposed to Calder\'{o}n preconditioners which are dense
+and require an additional compression step. The numerical tests demonstrate the robustness
+of the method with respect to $k$ and the relevance of the singular weight function
+$\omega$.
 
-On the other hand, \cite{averseng2019pseudo} is a more in-depth theoretical paper in which I develop a new type of pseudo-differential calculus on open curves, providing support for the definition of $P_k$. Indeed, it is proven that the term $k^2 \omega^2$ is the optimal correction in terms of some pseudo-differential properties of the preconditioner. As in the case of closed surfaces, there remains to confirm the relevance of this pseudo-differential property in terms of numerical performance.  
+Further, \cite{averseng2019pseudo} is a more in-depth theoretical paper in which I develop
+a new type of \emph{pseudo-differential calculus} on open curves, providing support for the
+definition of $P_k$. Indeed, it is proven that the term $k^2 \omega^2$ is the optimal
+correction in terms of some pseudo-differential properties of the preconditioner. As in
+the case of closed surfaces, there remains to confirm the relevance of this
+pseudo-differential property in terms of numerical performance.
 
 
 
-\subsection*{Goals and methods}
-
+\subsection{Goals and methods}
 
 \subsubsection*{Frequency-robust preconditioners on 3D screens}
 
-Although the numerical method published in \cite{alouges2019new} is only adapted to 2-dimensional contexts, generalizations to 3-dimensions seem possible as attempted in the last chapter of my thesis, with promising results. For instance, on an open surface $\Gamma$ with the tangential gradient $\nabla$, the preconditioner \eqref{prec} becomes
-\[P_k = \sqrt{-(\omega\,\nabla \,\omega)  \cdot \nabla - k^2 \omega^2}\,.\]
-Once this theory is completed for acoustic problems, a natural extension to electromagnetic scattering is be possible, as a natural combination of my work and the host laboratory \cite{hiptmair2019preconditioning}. Indeed, in \cite{hiptmair2019preconditioning}, from the knowledge of \textit{closed-form inverses} of the single layer and hypersingular operators, a compact perturbation of the inverse of the Electric Field Integral Equation (EFIE) operator is constructed, which leads to uniform bounds for the condition number in the medium and low frequency domain. Replacing the exact inverses by the square-root operators (which are compact-equivalent to the exact inverses), it is expected to obtain similar results, while benefiting from the quasi-local form and the high-frequency robustness. After dealing with electromagnetic problems, one can attempt to generalize this method to other operators and scattering problems (Hodge-Helmholtz, Dirac operator...).
+Although the numerical method published in \cite{alouges2019new} is only adapted to
+two-dimensional contexts, generalizations to three dimensions seem possible and has been
+attempted in the last chapter of my thesis, with promising empiric results. For instance,
+on an open surface $\Gamma$ with the tangential gradient $\nabla$, the preconditioner
+\eqref{prec} becomes
+\[P_k = \sqrt{-(\omega\,\nabla \,\omega) \cdot \nabla - k^2 \omega^2}\,.\] Once this
+theory is completed for acoustic problems, a natural extension to electromagnetic
+scattering will be possible, as a natural combination of my work and that of my host
+professor \cite{hiptmair2019preconditioning}. Indeed, in
+\cite{hiptmair2019preconditioning}, from the knowledge of \textit{closed-form inverses} of
+the single layer and hypersingular operators, a compact perturbation of the inverse of the
+Electric Field Integral Equation (EFIE) operator is constructed, which leads to uniform
+bounds for the condition number in the medium and low frequency domain. Replacing the
+exact inverses by the square-root operators (which are compact-equivalent to the exact
+inverses), it is expected to obtain similar results, while benefiting from the quasi-local
+form and the high-frequency robustness.
 
-Another natural direction is the extension of the pseudo-differential calculus of \cite{averseng2019pseudo} to open surfaces in 3D. 
+After dealing with electromagnetic problems, one can attempt to generalize this method to
+other operators (Hodge-Helmholtz, Dirac) )and related scattering problems, which are
+actively investigated in my host group.  Another natural research direction is the extension of the
+pseudo-differential calculus of \cite{averseng2019pseudo} to open surfaces in 3D.
 
 \subsubsection*{Conformal preconditioners}
 
-It is widely known that in generalized combined-field formulations, the exterior Dirichlet to Neumann (DtN) map is the optimal coupling operator. For a simply connected domain $\Omega$ in dimension $2$, and for the Laplace problem ($k = 0$) it is possible to show that the exterior DtN $\Lambda_0$ is equal to 
-\[\Lambda_0 = \sqrt{-(\omega \partial_\tau)^2}\]
-where $\partial_\tau$ is the tangential derivative on the boundary of the polygon and \[\omega(x) = \lvert (\nabla f) \circ f^{-1}(x)\rvert\] 
-where $f$ is the conformal mapping that transforms the exterior of $\Omega$ to the exterior of the unit disk. This generalizes naturally the ideas of my thesis to more general domains in dimension 2. When $\Omega$ is the interior of a polygon, it is possible to compute efficiently the conformal mapping using the Schwarz-Christoffel formula (see e.g. \cite{driscoll2002schwarz}). By analogy with the results of my thesis, one is led to believe that, for the Helmholtz problem ($k \neq 0$), the operator
+It is widely known that in generalized combined-field formulations, the exterior Dirichlet
+to Neumann (DtN) map is the optimal coupling operator. For a simply connected domain
+$\Omega$ in dimension $2$, and for the Laplace problem ($k = 0$) it is possible to show
+that the exterior DtN $\Lambda_0$ is given by
+\[\Lambda_0 = \sqrt{-(\omega \partial_\tau)^2}\;,\]
+where $\partial_\tau$ is the tangential derivative on the boundary of the polygon
+and \[\omega(x) = \lvert (\nabla f) \circ f^{-1}(x)\rvert\] where $f$ is the conformal
+mapping that transforms the exterior of $\Omega$ to the exterior of the unit disk. This
+generalizes naturally the ideas of my thesis to more general domains in dimension 2. When
+$\Omega$ is the interior of a polygon, it is possible to compute efficiently the conformal
+mapping using the Schwarz-Christoffel formula \cite{driscoll2002schwarz}. By
+analogy with the results of my thesis, one is led to believe that, for the Helmholtz
+problem ($k \neq 0$), the operator
 \[\sqrt{-(\omega \partial_\tau)^2 - k^2\omega^2}\]
-may be a good approximation of the exterior DtN map $\Lambda_k$. In addition, it might be possible to transport the pseudo-differential to the polygon via the conformal mapping, which would be a way to investigate this question. Preliminary theoretical and numerical investigation are very promising. 
+may be a good approximation of the exterior DtN map $\Lambda_k$. In addition, it might be
+possible to transport the pseudo-differential \rh{What is this?} to the polygon via the conformal mapping,
+which would be a way to investigate this question. Preliminary theoretical and numerical
+investigation are very promising.
 
-This work would also open some possible breakthrough for 3D singularities such as wedges, which are omnipresent in practical applications. 
+This work would also point to ways to attach 3D singularities such as wedges, which are
+very common  in practical applications.
 
 \subsubsection*{Quotient space framework for integral equations on multi-screens}
 
-Another promising idea is the possibility of formulating ``combined-field" integral equations for multi-screens. Combined field formulations are well-known for smooth scatterers and have been introduced more than 50 years ago \cite{brakhage1965dirichletsehe} as a way to guarantee the well-posedness of the equation at any wave frequency. For screens, combined field integral equations have been abandoned, because they degenerate when the obstacle no longer has interior. 
-However, we have recently discovered that the formalism of multi-screens restores a ``virtual" interior to the obstacle, and a combined-field equation can be formulated mathematically without difficulty. Preliminary numerical simulations have shown the power of this idea and it will be an immediate objective of this project to implement this idea and analyze it rigorously. This would lead without doubts to an important publication in our field. 
 
-Lastly, after my thesis, I have done a 6 month post-doctorate with Xavier Claeys, a former postdoc of Pr. Hiptmair, on the topic of preconditioning integral equations on multi-screens using an additive Schwarz approach (see e.g. \cite{marchand2019two}).
+Another promising idea is the possibility of formulating ``combined-field" integral
+equations for multi-screens. Combined field formulations are well-known for smooth
+scatterers and have been introduced more than 50 years ago
+\cite{brakhage1965dirichletsehe} as a way to guarantee the well-posedness of the equation
+at any frequency. For screens, combined field integral equations have been elusive,
+because they degenerate when the obstacle no longer has interior.  However, we have
+recently discovered that the formalism of multi-screens restores a ``virtual" interior to
+the obstacle, and a combined-field equation can be formulated mathematically without
+difficulty. Preliminary numerical simulations have shown the power of this idea and it
+will be an immediate objective of this project to implement this idea and analyze it
+rigorously.  \rh{Motivation: Screen first-kind BIE are well-posed for all frequencies!}
+
+Lastly, after my thesis, I have done a 6-month post-doctorate with Xavier Claeys. At LJLL,
+UPMC Paris, a former postdoc of my host professor R.~Hiptmair, on the topic of preconditioning integral
+equations on multi-screens using an additive Schwarz approach, see e.g. \cite{marchand2019two}.
 
 \subsubsection*{Implementation and numerical testing}
 
-All the methods that will be developed in this project will be implemented and tested numerically. For BEM simulations in dimension 2, I have developed my own code during my thesis that I can reuse in this postdoc. For 3D simulations, I will either use the software Gipsylab, a matlab BEM software which is close in implementation to my code, or use another free software developed by the community (e.g. Bemtools, used at ETH, or BEM++).
+All the methods that will be developed in this project will be implemented and tested
+numerically. For BEM simulations in dimension 2, I have developed my own code during my
+thesis that I can reuse during my stay at ETH. For 3D simulations, I will either use the
+software Gipsylab, a matlab BEM software which is close in implementation to my code, or
+use another free software developed by the community like X.~Claeys'
+Bemtools\footnote{\url{https://github.com/xclaeys/BemTool}}, already used in the host group
+or BEM++\footnote{\url{http://bempp.com/}} by T.~Betcke, UCL.
 
+\subsection{Timetable and research plan}
 
-
-\subsection*{Timetable and research plan}
-
-A timetable of the research project can be proposed as follows:
+A crude timetable of the research project can be proposed as follows:
 \begin{itemize}\itemsep-0.2em 
-	\item[-] High-frequency preconditioners for 3D screens for scalar waves by December 2020.
-	\item[-] Robust preconditioners for 3D screens for electromagnetic waves by March 2021, collaboration with Dr. Urzua-Torres.
-	\item[-] Conformal preconditioners by July 2021, collaboration with Pr. Alouges. 
-	\item[-] Combined-field multi-screens formulations by end of 2021, collaboration with Dr. Claeys. 
-	\item[-] Additive Schwarz preconditioners before end of 2021, collaboration with Dr. Claeys.
+\item[-] High-frequency preconditioners for 3D screens for scalar waves by December 2020.
+\item[-] Robust preconditioners for 3D screens for electromagnetic waves by March 2021,
+  collaboration with Dr. Urzua-Torres.
+\item[-] Conformal preconditioners by July 2021, collaboration with Pr. Alouges. 
+\item[-] Combined-field multi-screens formulations by end of 2021, collaboration with Dr. Claeys. 
+\item[-] Additive Schwarz preconditioners before end of 2021, collaboration with Dr. Claeys.
 \end{itemize}
+
 \begin{small}
-	\begin{thebibliography}{0}
+  \begin{thebibliography}{0}
 		
 		\bibitem{alouges2019new}
 		F.~Alouges and M.~Averseng.
 		\newblock New preconditioners for Laplace and Helmholtz integral equations on open curves: Analytical framework and Numerical results. 
 		\newblock Accepted for publication in {\em Numerische Mathematik}, 2020.
-		
+
+                \bibitem{ACB08}
+{\sc F.~Andriulli, K.~Cools, H.~Bagci, F.~Olyslager, A.~Buffa, S.~Christiansen,
+  and E.~Michielssen}, {\em A multiplicative {C}alderon preconditioner for the
+  electric field integral equation}, IEEE Trans. Antennas and Propagation, 56
+  (2008), pp.~2398--2412.
+                
 		\bibitem{antoine2007generalized}
 		X.~Antoine and M.~Darbas.
 		\newblock Generalized combined field integral equations for the iterative
@@ -182,7 +356,12 @@ A timetable of the research project can be proposed as follows:
 		O.~P.~Bruno and S.~K.~Lintner.
 		A high-order integral solver for scalar problems of diffraction by screens and apertures in three-dimensional space.
 		\newblock {\em Journal of Computational Physics} 252:250--274, 2013.
-		
+
+                \bibitem{BUC07}
+                  {\sc A.~Buffa and S.~Christiansen}, {\em A dual finite element complex on the
+                    barycentric refinement}, Math. Comp., 76 (2007), pp.~1743--1769.
+
+                
 		\bibitem{buffa2005regularized}
 		A.~Buffa and R.~Hiptmair.
 		\newblock Regularized combined field integral equations.
@@ -277,6 +456,7 @@ A timetable of the research project can be proposed as follows:
 		{I}ntegral {O}perator on screens.
 		\newblock {\em Integral Equations and Operator Theory} 92(1), 2020.
 
+               
 		\bibitem{marchand2019two}
 		P.~Marchand, P.~Jolivet, P.~H.~Tournier, X.~Claeys and F.~Nataf
 		\newblock Two-level preconditioning for h-version boundary element approximation of hypersingular operator with GenEO.
